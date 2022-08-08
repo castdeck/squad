@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <title>Material Design for Bootstrap</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"/>
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"/>
+    <!-- MDB -->
+    <link rel="stylesheet" href="css/mdb.min.css"/>
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="css/rooms.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
+            integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
+            crossorigin="anonymous"></script>
+</head>
+
+<body>
+<!--Main Navigation-->
+<header>
+    <!-- Sidebar -->
+    <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+        <div class="position-sticky">
+            <div class="list-group list-group-flush mx-3 mt-4">
+                <a href="#" class="list-group-item list-group-item-action py-2 ripple active" aria-current="true">
+                    <i class="fas fa-list fa-fw me-3"></i><span>Room一覧</span>
+                </a>
+                <a href="./room.html" class="list-group-item list-group-item-action py-2 ripple ">
+                    <i class="fas fa-home fa-fw me-3"></i><span>参加中Room</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!-- Sidebar -->
+
+    <!-- Navbar -->
+    <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+            <!-- Toggle button -->
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#sidebarMenu"
+                    aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Brand -->
+            <a class="navbar-brand" href="#">
+                <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" height="25" alt=""
+                     loading="lazy"/>
+            </a>
+
+            <!-- Right links -->
+            <ul class="navbar-nav ms-auto d-flex flex-row">
+                <!-- Notification dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink"
+                       role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge rounded-pill badge-notification bg-danger">1</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="#">Some news</a></li>
+                        <li><a class="dropdown-item" href="#">Another news</a></li>
+                        <li>
+                            <a class="dropdown-item" href="#">Something else</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Icon -->
+                <li class="nav-item">
+                    <a class="nav-link me-3 me-lg-0" href="#">
+                        <i class="fas fa-fill-drip"></i>
+                    </a>
+                </li>
+                <!-- Icon -->
+                <li class="nav-item me-3 me-lg-0">
+                    <a class="nav-link" href="#">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </li>
+
+                <!-- Avatar -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#"
+                       id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle"
+                             height="22"
+                             alt="" loading="lazy"/>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="#">My profile</a></li>
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item" href="#">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
+</header>
+<!--Main Navigation-->
+
+<!--Main layout-->
+<main style="margin-top: 58px">
+    <div class="container pt-4">
+        <div class="pb-3">
+            <button type="button" class="btn btn-light btn-floating btn-lg text-primary me-3" data-mdb-toggle="modal"
+                    data-mdb-target="#searchRoomModal">
+                <i class="fas fa-search"></i>
+            </button>
+
+            <button type="button" class="btn btn-success btn-floating btn-lg me-3" data-mdb-toggle="modal"
+                    data-mdb-target="#createRoomModal">
+                <i class="fas fa-plus"></i>
+            </button>
+
+            <button type="button" class="btn btn-danger btn-floating btn-lg " data-mdb-toggle="modal"
+                    data-mdb-target="#cancelRequest">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <section class="mb-4 col col-11">
+            <div class="pb-3">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col align-self-center">
+                                <span class="badge rounded-pill bg-warning text-dark">バトロワ</span>
+                                <span class="badge rounded-pill bg-warning text-dark">デュオ</span>
+                                <span class="badge rounded-pill bg-warning text-dark"><i
+                                        class="fas fa-microphone-alt"></i> ボイチャ有</span>
+                                <span class="badge rounded-pill bg-warning text-dark">募集：3</span>
+                                <span class="badge rounded-pill bg-warning text-dark">参加中：1</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            あいうえおかきくけこあいうえおかきくけこあいうえおかきくけこあいうえおかきくけこあいうえおかきくけこ
+                            あいうえおかきくけこあいうえおかきくけこあいうえおかきくけこあいうえおかきくけこあいうえおかきくけこ
+                        </p>
+                        <div class="row">
+                            <div class="col text-end float-end">39分前</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-grid gap-2 col-sm-6 col-lg-3 mx-auto">
+                            <a href="#" class="btn btn-secondary"><i class="fas fa-gamepad me-2"></i>参加中</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pb-3">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col align-self-center">
+                                <span class="badge rounded-pill bg-warning text-dark">バトロワ</span>
+                                <span class="badge rounded-pill bg-warning text-dark">デュオ</span>
+                                <span class="badge rounded-pill bg-warning text-dark"><i
+                                        class="fas fa-microphone-alt"></i> ボイチャ有</span>
+                                <span class="badge rounded-pill bg-warning text-dark">募集：3</span>
+                                <span class="badge rounded-pill bg-warning text-dark">参加中：1</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            あいうえおかきくけこあいうえおかきくけこあいうえおかきくけこあいうえおかきくけこあいうえおかきくけこ
+                            あいうえおかきくけこあいうえおかきくけこあいうえおかきくけこあいうえおかきくけこあいうえおかきくけこ
+                        </p>
+                        <div class="row">
+                            <div class="col text-end float-end">39分前</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-grid gap-2 col-sm-6 col-lg-3 mx-auto">
+                            <a href="#" class="btn btn-danger"><i
+                                    class="fas fa-paper-plane fa-fw me-2"></i>リクエスト中</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pb-3">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col align-self-center">
+                                <span class="badge rounded-pill bg-warning text-dark">バトロワ</span>
+                                <span class="badge rounded-pill bg-warning text-dark">デュオ</span>
+                                <span class="badge rounded-pill bg-warning text-dark"><i
+                                        class="fas fa-microphone-alt"></i> ボイチャ有</span>
+                                <span class="badge rounded-pill bg-warning text-dark">募集：3</span>
+                                <span class="badge rounded-pill bg-warning text-dark">参加中：1</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            あいうえおかきくけこあいうえおかきくけこあいうえおかきくけこあいうえおかきくけこあいうえおかきくけこ
+                            あいうえおかきくけこあいうえおかきくけこあいうえおかきくけこあいうえおかきくけこあいうえおかきくけこ
+                        </p>
+                        <div class="row">
+                            <div class="col text-end float-end">39分前</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-grid gap-2 col-sm-6 col-lg-3  mx-auto">
+                            <a href="#" class="btn btn-success disabled"><i
+                                    class="fas fa-paper-plane fa-fw me-2"></i>リクエスト</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pb-3">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col align-self-center">
+                                <span class="badge rounded-pill bg-warning text-dark">バトロワ</span>
+                                <span class="badge rounded-pill bg-warning text-dark">デュオ</span>
+                                <span class="badge rounded-pill bg-warning text-dark"><i
+                                        class="fas fa-microphone-alt"></i> ボイチャ有</span>
+                                <span class="badge rounded-pill bg-warning text-dark">募集：3</span>
+                                <span class="badge rounded-pill bg-warning text-dark">参加中：1</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            あいうえおかきくけこあいうえおかきくけこあいうえおかきくけこあいうえおかきくけこあいうえおかきくけこ
+                            あいうえおかきくけこあいうえおかきくけこあいうえおかきくけこあいうえおかきくけこあいうえおかきくけこ
+                        </p>
+                        <div class="row">
+                            <div class="col text-end float-end">39分前</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-grid gap-2 col-sm-6 col-lg-3  mx-auto">
+                            <a href="#" class="btn btn-dark disabled"><i
+                                    class="fas fa-lock fa-fw me-2"></i><span>締め切り</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="page_top">
+            <button type="button" class="btn btn-light btn-floating btn-lg text-primary">
+                <i class="fas fa-arrow-up"></i>
+            </button>
+        </div>
+
+        <!-- Create Modal -->
+        <div
+                class="modal fade"
+                id="createRoomModal"
+                data-mdb-backdrop="static"
+                data-mdb-keyboard="false"
+                tabindex="-1"
+                aria-labelledby="createRoomModalLabel"
+                aria-hidden="true"
+        >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="createRoomModalLabel">Room作成</h5>
+                        <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="pb-3">
+                            <div class="btn-group">
+                                <input type="radio" class="btn-check" name="register_mode" id="register_mode1"
+                                       autocomplete="off"/>
+                                <label class="btn btn-outline-primary" for="register_mode1">バトルロワイヤル</label>
+
+                                <input type="radio" class="btn-check" name="register_mode" id="register_mode2"
+                                       autocomplete="off"/>
+                                <label class="btn btn-outline-primary" for="register_mode2">ゼロビルド</label>
+
+                                <input type="radio" class="btn-check" name="register_mode" id="register_mode0"
+                                       autocomplete="off" checked/>
+                                <label class="btn btn-outline-primary" for="register_mode0">指定なし</label>
+                            </div>
+                        </div>
+                        <div class="pb-3">
+                            <div class="btn-group">
+                                <input type="radio" class="btn-check" name="register_team" id="register_team1"
+                                       autocomplete="off"/>
+                                <label class="btn btn-outline-primary" for="register_team1">デュオ</label>
+
+                                <input type="radio" class="btn-check" name="register_team" id="register_team2"
+                                       autocomplete="off"/>
+                                <label class="btn btn-outline-primary" for="register_team2">トリオ</label>
+
+                                <input type="radio" class="btn-check" name="register_team" id="register_team3"
+                                       autocomplete="off"/>
+                                <label class="btn btn-outline-primary" for="register_team3">スクワッド</label>
+
+                                <input type="radio" class="btn-check" name="register_team" id="register_team0"
+                                       autocomplete="off" checked/>
+                                <label class="btn btn-outline-primary" for="register_team0">指定なし</label>
+                            </div>
+                        </div>
+                        <div class="pb-3">
+                            <div class="btn-group">
+                                <input type="radio" class="btn-check" name="register_voice" id="register_voice1"
+                                       autocomplete="off"/>
+                                <label class="btn btn-outline-primary" for="register_voice1"><i
+                                        class="fas fa-microphone-alt"></i></label>
+
+                                <input type="radio" class="btn-check" name="register_voice" id="register_voice2"
+                                       autocomplete="off"/>
+                                <label class="btn btn-outline-primary" for="register_voice2"><i
+                                        class="fas fa-microphone-alt-slash"></i></label>
+
+                                <input type="radio" class="btn-check" name="register_voice" id="register_voice0"
+                                       autocomplete="off" checked/>
+                                <label class="btn btn-outline-primary" for="register_voice0">指定なし</label>
+                            </div>
+                        </div>
+                        <div class="pb-3">
+                            <div class="form-outline col-3">
+                                <input type="number" name="recruitmentNumber" id="register_recruitmentNumber"
+                                       class="form-control form-control-lg"/>
+                                <label class="form-label" for="register_recruitmentNumber">募集人数</label>
+                            </div>
+                        </div>
+                        <div class="pb-3">
+                            <div class="form-outline col-3">
+                                <input type="number" name="participantsNumber" id="register_participantsNumber"
+                                       class="form-control form-control-lg"/>
+                                <label class="form-label" for="register_participantsNumber">参加中人数</label>
+                            </div>
+                        </div>
+                        <div class="pb-3">
+                            <div class="form-outline">
+                                <textarea class="form-control" id="comments" rows="4"></textarea>
+                                <label class="form-label" for="comments">コメント</label>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-mdb-dismiss="modal">キャンセル</button>
+                        <button type="button" class="btn btn-primary">作成</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search Modal -->
+        <div
+                class="modal fade"
+                id="searchRoomModal"
+                data-mdb-backdrop="static"
+                data-mdb-keyboard="false"
+                tabindex="-1"
+                aria-labelledby="searchRoomModalLabel"
+                aria-hidden="true"
+        >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="searchRoomModalLabel">検索</h5>
+                        <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="pb-3">
+                            <div class="btn-group">
+                                <input type="radio" class="btn-check" name="search_mode" id="search_mode1"
+                                       autocomplete="off"/>
+                                <label class="btn btn-outline-primary" for="search_mode1">バトルロワイヤル</label>
+
+                                <input type="radio" class="btn-check" name="search_mode" id="search_mode2"
+                                       autocomplete="off"/>
+                                <label class="btn btn-outline-primary" for="search_mode2">ゼロビルド</label>
+
+                                <input type="radio" class="btn-check" name="search_mode" id="search_mode0"
+                                       autocomplete="off" checked/>
+                                <label class="btn btn-outline-primary" for="search_mode0">指定なし</label>
+                            </div>
+                        </div>
+                        <div class="pb-3">
+                            <div class="btn-group">
+                                <input type="radio" class="btn-check" name="search_team" id="search_team1"
+                                       autocomplete="off"/>
+                                <label class="btn btn-outline-primary" for="search_team1">デュオ</label>
+
+                                <input type="radio" class="btn-check" name="search_team" id="search_team2"
+                                       autocomplete="off"/>
+                                <label class="btn btn-outline-primary" for="search_team2">トリオ</label>
+
+                                <input type="radio" class="btn-check" name="search_team" id="search_team3"
+                                       autocomplete="off"/>
+                                <label class="btn btn-outline-primary" for="search_team3">スクワッド</label>
+
+                                <input type="radio" class="btn-check" name="search_team" id="search_team0"
+                                       autocomplete="off" checked/>
+                                <label class="btn btn-outline-primary" for="search_team0">指定なし</label>
+                            </div>
+                        </div>
+                        <div class="pb-3">
+                            <div class="btn-group">
+                                <input type="radio" class="btn-check" name="search_voice" id="search_voice1"
+                                       autocomplete="off"/>
+                                <label class="btn btn-outline-primary" for="search_voice1"><i
+                                        class="fas fa-microphone-alt"></i></label>
+
+                                <input type="radio" class="btn-check" name="search_voice" id="search_voice2"
+                                       autocomplete="off"/>
+                                <label class="btn btn-outline-primary" for="search_voice2"><i
+                                        class="fas fa-microphone-alt-slash"></i></label>
+
+                                <input type="radio" class="btn-check" name="search_voice" id="search_voice0"
+                                       autocomplete="off" checked/>
+                                <label class="btn btn-outline-primary" for="search_voice0">指定なし</label>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-mdb-dismiss="modal">キャンセル</button>
+                        <button type="button" class="btn btn-primary">検索</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search Modal -->
+        <div
+                class="modal fade"
+                id="cancelRequest"
+                data-mdb-backdrop="static"
+                data-mdb-keyboard="false"
+                tabindex="-1"
+                aria-labelledby="cancelRequestLabel"
+                aria-hidden="true"
+        >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="cancelRequestLabel">リクエストを取下げ</h5>
+                        <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        申請中のリクエストを取下げします。<br>
+                        他のroomへ参加リクエストをする場合、申請中のリクエストを取り下げる必要があります。
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-mdb-dismiss="modal">キャンセル</button>
+                        <button type="button" class="btn btn-primary">取下げ</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+<!--Main layout-->
+<!-- MDB -->
+<script type="text/javascript" src="js/mdb.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<!-- Custom scripts -->
+<script type="text/javascript" src="js/rooms.js"></script>
+
+</body>
+
+</html>
