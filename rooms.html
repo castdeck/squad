@@ -94,6 +94,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="row">
+                            <div>#1</div>
                             <div class="col align-self-center">
                                 <span class="badge rounded-pill bg-warning text-dark">バトロワ</span>
                                 <span class="badge rounded-pill bg-warning text-dark">デュオ</span>
@@ -115,7 +116,7 @@
                     </div>
                     <div class="card-footer">
                         <div class="d-grid gap-2 col-sm-6 col-lg-3 mx-auto">
-                            <a href="#" class="btn btn-secondary"><i class="fas fa-gamepad me-2"></i>参加中</a>
+                            <a href="./room.html" class="btn btn-secondary"><i class="fas fa-gamepad me-2"></i>参加中</a>
                         </div>
                     </div>
                 </div>
@@ -124,6 +125,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="row">
+                            <div>#2</div>
                             <div class="col align-self-center">
                                 <span class="badge rounded-pill bg-warning text-dark">バトロワ</span>
                                 <span class="badge rounded-pill bg-warning text-dark">デュオ</span>
@@ -155,6 +157,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="row">
+                            <div>#3</div>
                             <div class="col align-self-center">
                                 <span class="badge rounded-pill bg-warning text-dark">バトロワ</span>
                                 <span class="badge rounded-pill bg-warning text-dark">デュオ</span>
@@ -176,7 +179,8 @@
                     </div>
                     <div class="card-footer">
                         <div class="d-grid gap-2 col-sm-6 col-lg-3  mx-auto">
-                            <a href="#" class="btn btn-success disabled"><i
+                            <a href="#" class="btn btn-success " data-mdb-toggle="modal"
+                               data-mdb-target="#requestModal"><i
                                     class="fas fa-paper-plane fa-fw me-2"></i>リクエスト</a>
                         </div>
                     </div>
@@ -186,6 +190,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="row">
+                            <div>#4</div>
                             <div class="col align-self-center">
                                 <span class="badge rounded-pill bg-warning text-dark">バトロワ</span>
                                 <span class="badge rounded-pill bg-warning text-dark">デュオ</span>
@@ -420,6 +425,41 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-mdb-dismiss="modal">キャンセル</button>
                         <button type="button" class="btn btn-primary">取下げ</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Request Modal -->
+        <div
+                class="modal fade"
+                id="requestModal"
+                data-mdb-backdrop="static"
+                data-mdb-keyboard="false"
+                tabindex="-1"
+                aria-labelledby="requestLabel"
+                aria-hidden="true"
+        >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="requestLabel">参加リクエスト</h5>
+                        <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="description pb-3">
+                        Roomへの参加をリクエストします。<br>
+                        同時にリクエストできるのが1Roomです。<br>別のRoomにリクエストしたい場合は、リクエストを取下げてください。
+                        </div>
+                        <div class="form-outline col-sm-6 col-lg-6">
+                            <input type="text" id="form12" class="form-control" />
+                            <label class="form-label" for="form12">Epicネーム</label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-mdb-dismiss="modal">キャンセル</button>
+                        <button type="button" class="btn btn-success"><i
+                                class="fas fa-paper-plane fa-fw me-2"></i>リクエスト</button>
                     </div>
                 </div>
             </div>
