@@ -5,7 +5,7 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
-    <title>Fortnit本日のショップ</title>
+    <title>Fortnite|本日のショップ</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"/>
     <!-- Google Fonts Roboto -->
@@ -13,40 +13,58 @@
     <!-- MDB -->
     <link rel="stylesheet" href="css/mdb.min.css"/>
     <!-- Custom styles -->
-    <link rel="stylesheet" href="css/rooms.css"/>
+    <link rel="stylesheet" href="css/store.css"/>
 </head>
 
 <body>
-<div class="container pt-4">
-    <h2>おすすめ</h2>
-    <div class="row pb-5" id="featured-list">
-    </div>
 
-    <h2>デイリー</h2>
-    <div class="row pb-5" id="daily-list">
-    </div>
 
-    <h2>特別</h2>
-    <div class="row" id="specialFeatured-list">
+<div id="loading">
+    <div id="spinner" class="d-flex justify-content-center align-items-center">
+
+        <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+
     </div>
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"></h5>
-                    <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row" id="item-list"></div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
+</div>
+<div id="wrap">
+    <section class="container">
+        <div class="contents pt-5">
+            <h2>おすすめ</h2>
+            <div class="row pb-5" id="featured-list">
+            </div>
+
+            <h2>デイリー</h2>
+            <div class="row pb-5" id="daily-list">
+            </div>
+
+            <h2>特別</h2>
+            <div class="row" id="specialFeatured-list">
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"></h5>
+                            <button type="button" class="btn-close" data-mdb-dismiss="modal"
+                                    aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row" id="item-list"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 </div>
+
 
 <!-- MDB -->
 <script type="text/javascript" src="js/mdb.min.js"></script>

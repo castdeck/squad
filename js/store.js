@@ -1,4 +1,8 @@
 $(function () {
+
+  var h = $(window).height();
+  $('#loading ,#spinner').height(h).css('display','block');
+
   var RARITY = {
     "uncommon": "light text-dark",
     "common": "success",
@@ -6,6 +10,7 @@ $(function () {
     "epic": "secondary",
     "legend": "warning"
   };
+
   $(function () {
     $.ajax({
       url: "https://fortnite-api.com/v2/shop/br?language=ja",
@@ -31,6 +36,8 @@ $(function () {
         $('#item-list').html(items);
         return;
       });
+
+      stopload();
     }).fail(function (data) {
       // error
       console.log("error");
@@ -80,5 +87,11 @@ $(function () {
       cards += "</div>";
       return cards;
     }).join('');
+  }
+
+  function stopload(){
+    $('#wrap').css('display','block');
+    $('#loading').delay(500).fadeOut(500);
+    $('#spinner').delay(300).fadeOut(300);
   }
 });
