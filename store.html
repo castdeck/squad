@@ -5,7 +5,7 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
-    <title>募集板</title>
+    <title>Fortnit本日のショップ</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"/>
     <!-- Google Fonts Roboto -->
@@ -17,103 +17,37 @@
 </head>
 
 <body>
-<!--Main Navigation-->
-<section>
-    <!-- Sidebar -->
-    <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
-        <div class="position-sticky">
-            <div class="list-group list-group-flush mx-3 mt-4">
-                <a href="./rooms.html" class="list-group-item list-group-item-action py-2 ripple " aria-current="true">
-                    <i class="fas fa-list fa-fw me-3"></i><span>Room一覧</span>
-                </a>
-                <a href="./room.html" class="list-group-item list-group-item-action py-2 ripple active">
-                    <i class="fas fa-home fa-fw me-3"></i><span>参加中Room</span><span
-                        class="badge rounded-pill bg-danger ms-2">3</span>
-                </a>
-            </div>
-        </div>
-    </nav>
-    <!-- Sidebar -->
+<div class="container pt-4">
+    <h2>おすすめ</h2>
+    <div class="row pb-5" id="featured-list">
+    </div>
 
-    <!-- Navbar -->
-    <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-        <!-- Container wrapper -->
-        <div class="container-fluid">
-            <!-- Toggle button -->
-            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#sidebarMenu"
-                    aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
-            </button>
+    <h2>デイリー</h2>
+    <div class="row pb-5" id="daily-list">
+    </div>
 
-            <!-- Brand -->
-            <a class="navbar-brand" href="#">
-                <span>募集板</span>
-            </a>
-
-            <!-- Right links -->
-            <ul class="navbar-nav ms-auto d-flex flex-row">
-                <li class="nav-item dropdown">
-                    <a class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink"
-                       role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-user"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="./profile.html">Profile</a></li>
-                        <li><a class="dropdown-item" href="#">Logout</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-        <!-- Container wrapper -->
-    </nav>
-    <!-- Navbar -->
-</section>
-<!--Main Navigation-->
-
-<!--Main layout-->
-<main style="margin-top: 58px">
-    <div class="container pt-4">
-        <h2>おすすめ</h2>
-        <div class="row" id="featured-list">
-        </div>
-
-        <h2>デイリー</h2>
-        <div class="row" id="daily-list">
-        </div>
-
-        <h2>特別</h2>
-        <div class="row" id="specialFeatured-list">
-        </div>
-        <!-- Full screen modal -->
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
-            Launch demo modal
-        </button>
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-fullscreen">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row" id="item-list"></div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
-                    </div>
+    <h2>特別</h2>
+    <div class="row" id="specialFeatured-list">
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                    <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row" id="item-list"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
-</main>
+</div>
 
-
-
-
-
-<!--Main layout-->
 <!-- MDB -->
 <script type="text/javascript" src="js/mdb.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
