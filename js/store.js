@@ -20,6 +20,9 @@ $(function () {
       $('#featured-list').append(createEntryCard(shopData.data.featured.entries, "featured"));
       $('#daily-list').append(createEntryCard(shopData.data.daily.entries, "daily"));
       $('#specialFeatured-list').append(createEntryCard(shopData.data.specialFeatured.entries, "specialFeatured"));
+
+      $('#updated_at').html(luxon.DateTime.fromISO(shopData.data.date).toFormat('yyyy/MM/dd HH:mm'));
+
       $('#exampleModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget);
         var type = button.data('type');
@@ -34,6 +37,7 @@ $(function () {
           items = createItemCard(shopData.data.specialFeatured.entries[entryIndex]);
         }
         $('#item-list').html(items);
+
         return;
       });
 

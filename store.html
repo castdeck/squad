@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html lang="ja">
 
-<head>
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
     <title>Fortnite|本日のショップ</title>
+
+    <meta property="og:url" content="https://castdeck.github.io/squad/store"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Fortnite本日のアイテムショップ"/>
+    <meta property="og:description" content="Fortniteのデイリーアイテムショップ情報です。"/>
+    <meta property="og:site_name" content="Fortnite本日のアイテムショップ"/>
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"/>
     <!-- Google Fonts Roboto -->
@@ -13,11 +20,25 @@
     <!-- MDB -->
     <link rel="stylesheet" href="css/mdb.min.css"/>
     <!-- Custom styles -->
+    <link rel="stylesheet" href="css/common.css"/>
     <link rel="stylesheet" href="css/store.css"/>
 </head>
 
 <body>
 
+<!-- Navbar -->
+<nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+
+        <!-- Brand -->
+        <a class="navbar-brand" href="#">
+            <h1><span>本日のアイテムショップ</span></h1>
+        </a>
+    </div>
+    <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->
 
 <div id="loading">
     <div id="spinner" class="d-flex justify-content-center align-items-center">
@@ -30,7 +51,17 @@
 </div>
 <div id="wrap">
     <section class="container">
-        <div class="contents pt-5">
+        <div class="contents" style="margin-top: 58px">
+            <div class="row pt-5">
+                <div class="col">
+
+                </div>
+            </div>
+            <div class="row pb-3">
+                <div class="col">
+                    <div class="text-end">更新日時：<span id="updated_at"></span></div>
+                </div>
+            </div>
             <h2>おすすめ</h2>
             <div class="row pb-5" id="featured-list">
             </div>
@@ -42,6 +73,13 @@
             <h2>特別</h2>
             <div class="row" id="specialFeatured-list">
             </div>
+
+            <div id="page_top">
+                <button type="button" class="btn btn-light btn-floating btn-lg text-primary">
+                    <i class="fas fa-arrow-up"></i>
+                </button>
+            </div>
+
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                  aria-hidden="true">
@@ -71,7 +109,9 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <!-- Custom scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.0.1/luxon.min.js"></script>
 <script type="text/javascript" src="js/store.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
 
 </body>
 
