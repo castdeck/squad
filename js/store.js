@@ -37,10 +37,10 @@ $(function () {
           items = createItemCard(shopData.data.specialFeatured.entries[entryIndex]);
         }
         $('#item-list').html(items);
-
+        $("img.lazyload").lazyload();
         return;
       });
-
+      $("img.lazyload").lazyload();
       stopload();
     }).fail(function (data) {
       // error
@@ -52,10 +52,10 @@ $(function () {
     return entries.map(function (entry, index) {
       let cards = '<div class="col-sm-3 pb-3 ">';
       cards += '<a href="javascript:void(0);" data-mdb-toggle="modal" data-mdb-target="#exampleModal" data-type="' + featuredType + '"featured" data-entry-Index="' + index + '" >'
-      cards += '<img class="card-img-top shadow-1-strong" src="' + entry.newDisplayAsset.materialInstances[0].images.Background + '">';
+      cards += '<img class="card-img-top shadow-1-strong lazyload" data-src="' + entry.newDisplayAsset.materialInstances[0].images.Background + '">';
       cards += '</a>';
       cards += '<div class="card-body shadow-1-strong">';
-      cards += '<span class="card-text">' + entry.finalPrice + '<img src="https://fortnite-api.com/images/vbuck.png" style="width:19px; vertical-align: -4px"></span>';
+      cards += '<span class="card-text">' + entry.finalPrice + '<img class="lazyload" alt="" data-src="https://fortnite-api.com/images/vbuck.png" style="width:19px; vertical-align: -4px"></span>';
       if (entry.banner) {
         cards += '<br><p class="card-text badge rounded-pill bg-danger" style="white-space: normal;">' + entry.banner.value + '</p>';
       }
@@ -66,13 +66,13 @@ $(function () {
   }
 
   function createItemCard(entry) {
-    $('#exampleModalLabel').html(entry.finalPrice + '<img src="https://fortnite-api.com/images/vbuck.png" style="width:20px; vertical-align: -3px">');
+    $('#exampleModalLabel').html(entry.finalPrice + '<img class="lazyload" alt="" data-src="https://fortnite-api.com/images/vbuck.png" style="width:20px; vertical-align: -3px">');
     let items = entry.items;
     let bgColor1 = entry.newDisplayAsset.materialInstances[0].colors.Background_Color_A;
     let bgColor2 = entry.newDisplayAsset.materialInstances[0].colors.Background_Color_B;
     return items.map(function (item) {
       let cards = '<div class="col-sm-3 pb-3 card ">';
-      cards += '<img class="card-img-top" src="';
+      cards += '<img class="card-img-top lazyload" alt="" data-src="';
       cards += item.images.icon;
       cards += '" style="background:-webkit-gradient(linear, left top, left bottom, from(#' + bgColor1 + '), to(#' + bgColor2 + '));">';
       let rarity = RARITY[item.rarity.value];
@@ -83,7 +83,7 @@ $(function () {
       if (item.variants) {
         cards += '<div class="row">';
         item.variants[0].options.map(function (option) {
-          cards += '<img class="col-sm-6 border" src="' + option.image + '" style="background:-webkit-gradient(linear, left top, left bottom, from(#' + bgColor1 + '), to(#' + bgColor2 + '));">';
+          cards += '<img class="col-sm-6 border lazyload" alt="" data-src="' + option.image + '" style="background:-webkit-gradient(linear, left top, left bottom, from(#' + bgColor1 + '), to(#' + bgColor2 + '));">';
         });
         cards += '</div>'
       }
