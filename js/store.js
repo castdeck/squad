@@ -52,7 +52,7 @@ $(function () {
     return entries.map(function (entry, index) {
       let cards = '<div class="col-sm-3 pb-3 ">';
       cards += '<a href="javascript:void(0);" data-mdb-toggle="modal" data-mdb-target="#exampleModal" data-type="' + featuredType + '"featured" data-entry-Index="' + index + '" >'
-      cards += '<img class="card-img-top shadow-1-strong lazyload" data-src="' + entry.newDisplayAsset.materialInstances[0].images.Background + '">';
+      cards += '<img class="card-img-top shadow-1-strong lazyload" width="100%" data-src="' + entry.newDisplayAsset.materialInstances[0].images.Background + '">';
       cards += '</a>';
       cards += '<div class="card-body shadow-1-strong">';
       cards += '<span class="card-text">' + entry.finalPrice + '<img class="lazyload" alt="" data-src="https://fortnite-api.com/images/vbuck.png" style="width:19px; vertical-align: -4px"></span>';
@@ -72,7 +72,7 @@ $(function () {
     let bgColor2 = entry.newDisplayAsset.materialInstances[0].colors.Background_Color_B;
     return items.map(function (item) {
       let cards = '<div class="col-sm-3 pb-3 card ">';
-      cards += '<img class="card-img-top lazyload" alt="" data-src="';
+      cards += '<img class="card-img-top lazyload" alt="" width="100%" data-src="';
       cards += item.images.icon;
       cards += '" style="background:-webkit-gradient(linear, left top, left bottom, from(#' + bgColor1 + '), to(#' + bgColor2 + '));">';
       let rarity = RARITY[item.rarity.value];
@@ -83,7 +83,7 @@ $(function () {
       if (item.variants) {
         cards += '<div class="row">';
         item.variants[0].options.map(function (option) {
-          cards += '<img class="col-sm-6 border lazyload" alt="" data-src="' + option.image + '" style="background:-webkit-gradient(linear, left top, left bottom, from(#' + bgColor1 + '), to(#' + bgColor2 + '));">';
+          cards += '<img class="col-sm-6 border lazyload" width="100%" alt="" data-src="' + option.image + '" style="background:-webkit-gradient(linear, left top, left bottom, from(#' + bgColor1 + '), to(#' + bgColor2 + '));">';
         });
         cards += '</div>'
       }
