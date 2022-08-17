@@ -52,7 +52,7 @@ $(function () {
     return entries.map(function (entry, index) {
       let cards = '<div class="col-sm-3 pb-3 ">';
       cards += '<a href="javascript:void(0);" data-mdb-toggle="modal" data-mdb-target="#exampleModal" data-type="' + featuredType + '"featured" data-entry-Index="' + index + '" >'
-      cards += '<img class="card-img-top shadow-1-strong lazyload" width="100%" height="auto";" data-src="' + entry.newDisplayAsset.materialInstances[0].images.Background + '">';
+      cards += '<img class="card-img-top shadow-1-strong lazyload" width="100%" height="auto" data-src="' + entry.newDisplayAsset.materialInstances[0].images.Background + '">';
       cards += '</a>';
       cards += '<div class="card-body shadow-1-strong">';
       cards += '<span class="card-text">' + entry.finalPrice + '<img class="lazyload" alt="" data-src="https://fortnite-api.com/images/vbuck.png" style="width:19px; height:auto; vertical-align: -4px"></span>';
