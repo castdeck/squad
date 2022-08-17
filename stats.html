@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <title>Fortnite|本日のショップ</title>
+
+    <meta property="og:url" content="https://castdeck.github.io/squad/store"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Fortnite本日のアイテムショップ"/>
+    <meta property="og:description" content="Fortniteのデイリーアイテムショップ情報です。"/>
+    <meta property="og:site_name" content="Fortnite本日のアイテムショップ"/>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"/>
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"/>
+    <!-- MDB -->
+    <link rel="stylesheet" href="css/mdb.min.css"/>
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/store.css"/>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+
+        <!-- Brand -->
+        <a class="navbar-brand" href="#">
+            <h1><span>戦績</span></h1>
+        </a>
+    </div>
+    <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->
+
+<div id="loading">
+    <div id="spinner" class="d-flex justify-content-center align-items-center">
+
+        <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+
+    </div>
+</div>
+<div id="">
+    <section class="container">
+        <div class="contents pt-5 pb-3" style="margin-top: 58px">
+            <div class="row pb-3">
+                <h2>SeasonLevel : <span class="seasonLevel"></span></h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <h2>ソロ</h2>
+                    <div class="pb-5" id="solo">
+                        <table class="table table-striped table-sm table-bordered">
+                            <tr>
+                                <th scope="col">wins</th>
+                                <td class="text-end"><span class="wins"></span> / <span class="matches"></span> (<span class="winRate"></span>%)</td>
+                            </tr>
+                            <tr>
+                                <th scope="col">top10</th>
+                                <td class="text-end"><span class="top10"></span> / <span class="matches"></span></td>
+                            </tr>
+                            <tr>
+                                <th scope="col">top25</th>
+                                <td class="text-end"><span class="top25"></span> / <span class="matches"></span></td>
+                            </tr>
+                            <tr>
+                                <th scope="col">キル数</th>
+                                <td class="text-end"><span class="kills"></span>回</td>
+                            </tr>
+                            <tr>
+                                <th scope="col">平均キル（分）</th>
+                                <td class="text-end"><span class="killsPerMin"></span>回 / 分</td>
+                            </tr>
+                            <tr>
+                                <th scope="col">平均キル（マッチ）</th>
+                                <td class="text-end"><span class="killsPerMatch"></span>回 / マッチ</td>
+                            </tr>
+                            <tr>
+                                <th scope="col">プレイ時間</th>
+                                <td class="text-end"><span class="minutesPlayed"></span></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <h2>デュオ</h2>
+                    <div class="pb-5" id="duo">
+                        <table class="table table-striped table-sm table-bordered">
+                            <tr>
+                                <th scope="col">wins</th>
+                                <td class="text-end"><span class="wins"></span> / <span class="matches"></span> (<span class="winRate"></span>%)</td>
+                            </tr>
+                            <tr>
+                                <th scope="col">top5</th>
+                                <td class="text-end"><span class="top5"></span> / <span class="matches"></span></td>
+                            </tr>
+                            <tr>
+                                <th scope="col">top12</th>
+                                <td class="text-end"><span class="top12"></span> / <span class="matches"></span></td>
+                            </tr>
+                            <tr>
+                                <th scope="col">キル数</th>
+                                <td class="text-end"><span class="kills"></span>回</td>
+                            </tr>
+                            <tr>
+                                <th scope="col">平均キル（分）</th>
+                                <td class="text-end"><span class="killsPerMin"></span>回 / 分</td>
+                            </tr>
+                            <tr>
+                                <th scope="col">平均キル（マッチ）</th>
+                                <td class="text-end"><span class="killsPerMatch"></span>回 / マッチ</td>
+                            </tr>
+                            <tr>
+                                <th scope="col">プレイ時間</th>
+                                <td class="text-end"><span class="minutesPlayed"></span></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <h2>スクワッド</h2>
+                    <div class="pb-5" id="squad">
+                        <table class="table table-striped table-sm table-bordered">
+                            <tr>
+                                <th scope="col">wins</th>
+                                <td class="text-end"><span class="wins"></span> / <span class="matches"></span> (<span class="winRate"></span>%)</td>
+                            </tr>
+                            <tr>
+                                <th scope="col">top3</th>
+                                <td class="text-end"><span class="top3"></span> / <span class="matches"></span></td>
+                            </tr>
+                            <tr>
+                                <th scope="col">top6</th>
+                                <td class="text-end"><span class="top6"></span> / <span class="matches"></span></td>
+                            </tr>
+                            <tr>
+                                <th scope="col">キル数</th>
+                                <td class="text-end"><span class="kills"></span>回</td>
+                            </tr>
+                            <tr>
+                                <th scope="col">平均キル（分）</th>
+                                <td class="text-end"><span class="killsPerMin"></span>回 / 分</td>
+                            </tr>
+                            <tr>
+                                <th scope="col">平均キル（マッチ）</th>
+                                <td class="text-end"><span class="killsPerMatch"></span>回 / マッチ</td>
+                            </tr>
+                            <tr>
+                                <th scope="col">プレイ時間</th>
+                                <td class="text-end"><span class="minutesPlayed"></span></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"></h5>
+                            <button type="button" class="btn-close" data-mdb-dismiss="modal"
+                                    aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row" id="item-list"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<!-- MDB -->
+<script type="text/javascript" src="js/mdb.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<!-- Custom scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.0.1/luxon.min.js"></script>
+<script type="text/javascript" src="js/stats.js"></script>
+<!--<script type="text/javascript" src="js/common.js"></script>-->
+
+</body>
+
+</html>
