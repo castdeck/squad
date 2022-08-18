@@ -70,32 +70,40 @@ $(function () {
   }
 
   function createItemCard(entry) {
-    $('#exampleModalLabel').html(entry.finalPrice + '<img class="lazyload" alt="" data-src="https://fortnite-api.com/images/vbuck.png" style="width:20px; height:auto; vertical-align: -3px">');
-    let items = entry.items;
-    let bgColor1 = entry.newDisplayAsset.materialInstances[0].colors.Background_Color_A;
-    let bgColor2 = entry.newDisplayAsset.materialInstances[0].colors.Background_Color_B;
-    return items.map(function (item) {
-      let cards = '<div class="col-sm-3 pb-3 card ">';
-      cards += '<img class="card-img-top lazyload" alt="" width="100%" height="auto" data-src="';
-      cards += item.images.icon;
-      cards += '" style="background:-webkit-gradient(linear, left top, left bottom, from(#' + bgColor1 + '), to(#' + bgColor2 + '));">';
-      let rarity = RARITY[item.rarity.value];
-      rarityStyle = rarity ? rarity : "dark";
-      cards += '<div class="card-body shadow-1-strong border-top border-' + rarityStyle + ' border-5">';
-      cards += '<h5 class="card-title me-3">' + item.name + '</h5>';
-      cards += '<div class="card-text"><p class="border badge rounded-pill bg-' + rarityStyle + ' " style="white-space: normal;">' + item.type.displayValue + '</p>' + '</div>';
-      if (item.variants) {
-        cards += '<div class="row">';
-        item.variants[0].options.map(function (option) {
-          cards += '<img class="col-sm-6 border lazyload" width="100%" height="auto" alt="" data-src="' + option.image + '" style="background:-webkit-gradient(linear, left top, left bottom, from(#' + bgColor1 + '), to(#' + bgColor2 + '));">';
-        });
-        cards += '</div>'
-      }
-      cards += "</div>";
-      cards += "</div>";
-      return cards;
-    }).join('');
-  }
+      $('#exampleModalLabel').html(entry.finalPrice + '<img class="lazyload" alt="" data-src="https://fortnite-api.com/images/vbuck.png" style="width:20px; height:auto; vertical-align: -3px">');
+      let items = entry.items;
+
+      return items.map(function (item) {
+        let cards = '<div class="col-sm-3 pb-3 card ">';
+        cards += '<img class="card-img-top lazyload" alt="" width="100%" height="auto" data-src="' + item.images.icon + '"';
+
+        let bgColorStyle = null;
+        if (entry.newDisplayAsset && entry.newDisplayAsset.materialInstances[0]) {
+          let bgColor1 = entry.newDisplayAsset.materialInstances[0].colors.Background_Color_A;
+          let bgColor2 = entry.newDisplayAsset.materialInstances[0].colors.Background_Color_B;
+          bgColorStyle = ' style="background:-webkit-gradient(linear, left top, left bottom, from(#' + bgColor1 + '), to(#' + bgColor2 + '));"';
+        }
+        cards += bgColorStyle;
+        cards += '>';
+        let rarity = RARITY[item.rarity.value];
+        rarityStyle = rarity ? rarity : "dark";
+        cards += '<div class="card-body shadow-1-strong border-top border-' + rarityStyle + ' border-5">';
+        cards += '<h5 class="card-title me-3">' + item.name + '</h5>';
+        cards += '<div class="card-text"><p class="border badge rounded-pill bg-' + rarityStyle + ' " style="white-space: normal;">' + item.type.displayValue + '</p>' + '</div>';
+        if (item.variants) {
+          cards += '<div class="row">';
+          item.variants[0].options.map(function (option) {
+            cards += '<img class="col-sm-6 border lazyload" width="100%" height="auto" alt="" data-src="' + option.image + '"';
+            cards += bgColorStyle;
+                  cards += '>';
+          });
+          cards += '</div>'
+        }
+        cards += "</div>";
+        cards += "</div>";
+        return cards;
+      }).join('');
+    }
 
   function stopload(){
     $('#wrap').css('display','block');
